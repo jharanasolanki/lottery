@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <title>Lottery Entry</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-12 text-center my-5">
+        <p class="h3">Win a lottery!</p>
+        </div>
+        <div class="container border border-light rounded border-3 my-2 p-5 col-6">
+            <form class="row g-4" action="save.php" method="POST">
+                <div class="form-outline">
+                    <input type="email" name="email" id="typeEmail" class="form-control" required />
+                    <label class="form-label" for="typeEmail">Email input</label>
+                </div>
+                <div class="form-outline">
+                    <input type="tel" name="phone" id="typePhone" class="form-control" required />
+                    <label class="form-label" for="typePhone">Phone number input</label>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary btn-md" type="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+<!-- MDB -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+</html>
