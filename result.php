@@ -14,37 +14,30 @@ if ($conn->connect_error) {
 // Creating array for ids of the entries for random selection
 $id_array = array();
 
-// Pushing ids of entries which have occured twice
-$sql = "select id from lottery where count=2";
+$sql = "select id from lottery where count<>3";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Pushing the id twice to double the chances
-        array_push($id_array, $row["id"]);
-        array_push($id_array, $row["id"]);
+        if($row["id"]==2)
+        {
+            array_push($id_array, $row["id"]);
+            array_push($id_array, $row["id"]);
+        }
+         // Pushing the id thrice to triple the chances
+        else if($row["id"]==2)
+        {
+            array_push($id_array, $row["id"]);
+            array_push($id_array, $row["id"]);
+            array_push($id_array, $row["id"]);
+        }
+        else
+        {
+            array_push($id_array, $row["id"]);
+        }
     }
 } 
 
-$sql = "select id from lottery where count=5";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        // Pushing the id thrice to triple the chances
-        array_push($id_array, $row["id"]);
-        array_push($id_array, $row["id"]);
-        array_push($id_array, $row["id"]);
-    }
-}
-
-// Not pushing the ids which have occured thrice as they are disqualified
-$sql = "select id from lottery where count NOT IN(2,3,5)";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        // Pushing the id to array
-        array_push($id_array, $row["id"]);
-    }
-}
 
 // Generating a random number between 0 and the (length of $id_array)-1
 $random_value=rand(0,count($id_array)-1);
